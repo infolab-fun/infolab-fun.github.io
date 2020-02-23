@@ -1,0 +1,11 @@
+.stub {
+	font-family: 'Roboto';
+	text-align: center;
+	font-size: 1.3em;
+}
+
+.image_work {
+	padding-top: 15vh;
+	width: 50vmin;
+	height: 50vmin;
+}
