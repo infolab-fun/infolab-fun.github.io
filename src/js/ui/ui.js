@@ -9,10 +9,10 @@ function setOnClickListeners() {
     });
     // Кнопка "Взломать" (проект)
     document.getElementById('button_hack').addEventListener('click', () => {
-        isSuccessful = onCheckButton();
+        let isSuccessful = onCheckButton();
         if (isSuccessful) {
             openPage('project');
-            showProjectDescription(wayco);
+            showProjectDescription(currentProject);
         }
     });
     // Кнопка "Закрыть камеру"

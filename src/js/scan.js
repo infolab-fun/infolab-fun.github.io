@@ -22,9 +22,11 @@ function scanning(cameraId) {
     html5QrCode.start(
         cameraId,
         {
-            fps: 10 // Optional frame per seconds for qr code scanning
+            fps: 10, // Optional frame per seconds for qr code scanning
+            qrbox: 450
         },
         qrCodeMessage => {
+            console.log(qrCodeMessage);
             let projectName = '';
             if (qrCodeMessage === 'https://vk.com/infolab_club?project=isc' && !iscEnable) projectName = isc;
             if (qrCodeMessage === 'https://vk.com/infolab_club?project=restarter' && !restarterEnable) projectName = recyclingStarter;
@@ -33,15 +35,9 @@ function scanning(cameraId) {
             if (qrCodeMessage === 'https://vk.com/infolab_club?project=rushzone' && !rushzoneEnable) projectName = rushZone;
             if (projectName !== '') {
                 currentProject = projectName;
-                if (currentProject === isc) iscEnable = true;
-                if (currentProject === recyclingStarter) restarterEnable = true;
-                if (currentProject === manifesto) manifestoEnable = true;
-                if (currentProject === wayco) waycoEnable = true;
-                if (currentProject === rushZone) rushzoneEnable = true;
-                saveToStorage();
-                openPage('project');
-                showProjectDescription(currentProject);
                 stopScan();
+                startGame();
+                openPage('game');
             }
             return qrCodeMessage;
         },

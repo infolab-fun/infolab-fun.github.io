@@ -2,11 +2,11 @@
 
 ## QR коды плакатов
 
-* ISC: ISC
-* Recycling Starter: Recycling Starter
-* Manifesto: Manifesto
-* WayCo: WayCo
-* Rush Zone: Rush Zone
+* ISC: https://vk.com/infolab_club?project=isc
+* Recycling Starter: https://vk.com/infolab_club?project=restarter
+* Manifesto: https://vk.com/infolab_club?project=manifesto
+* WayCo: https://vk.com/infolab_club?project=wayco
+* Rush Zone: https://vk.com/infolab_club?project=rushzone
 
 ## Ссылка на плакаты с QR кодами (для теста)
 https://drive.google.com/drive/folders/1hK8BV7crurc_lKW1gDUCGhuUoOLRefkx

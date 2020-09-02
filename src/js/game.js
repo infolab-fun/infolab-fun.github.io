@@ -1,10 +1,22 @@
-let trueId = [["button11", "button12", "button13"], ["button21", "button23", "button24" ],
-    ["button32","button34"]];
+let button11, button12, button13, button14, button21, button22, button23, button24, button31, button32, button33, button34;
+
+let trueIdWayCo = [["button11", "button12", "button13"], ["button21", "button23", "button24" ],
+    ["button32","button33", "button34"]];
+let trueIdISC = [["button11"], ["button23"], ["button32"]];
+let trueIdRecyclingStarter = [["button11", "button12", "button13"], ["button21", "button22", "button23", "button24"],
+    ["button32", "button33", "button34"]];
+let trueIdManifesto = [["button11"], ["button21"], ["button33"]];
+let trueIdRushZone = [["button11", "button12"], ["button22"], ["button31"]];
+
+
 let allId = [["button11", "button12", "button13", "button14"], ["button21", "button22", "button23", "button24"],
     ["button31", "button32", "button33", "button34"]];
-let playerId = [];
+let playerId;
+
+let currentTrueId;
 
 function startGame(gameName) {
+    playerId = [];
     document.getElementById('game_header').innerText = currentProject;
     const gameAbout = document.getElementById('game_about');
     if (currentProject === isc) gameAbout.innerHTML = `<span>Нативное Android приложение для химических тестов.</span>`;
@@ -12,7 +24,39 @@ function startGame(gameName) {
     else if (currentProject === manifesto) gameAbout.innerHTML = `<span>Приложение для настройки бионических протезов для умных часов.</span>`;
     else if (currentProject === wayco) gameAbout.innerHTML = `<span>Сервис для удалённого заказа кофе, состоящий из веб и мобильных приложений.</span>`;
     else if (currentProject === rushZone) gameAbout.innerHTML = `<span>Мобильная экшн-рпг игра, разрабатываемая на Unity.</span>`;
-    setInitialSettings()
+    setInitialSettings();
+
+    // setting current right answers
+    switch (currentProject) {
+        case isc:
+            currentTrueId = trueIdISC;
+            break;
+        case wayco:
+            currentTrueId = trueIdWayCo;
+            break;
+        case manifesto:
+            currentTrueId = trueIdManifesto;
+            button11.textContent = "Tizen";
+            button13.textContent = "Linux";
+            button23.textContent = "Pascal";
+            button24.textContent = "Python";
+            button32.textContent = "Atom";
+            button33.textContent = "Tizen Studio";
+            button34.textContent = "VS Code";
+            break;
+        case rushZone:
+            currentTrueId = trueIdRushZone;
+            button14.textContent = "Linux";
+            button21.textContent = "Kotlin";
+            button32.textContent = "PyCharm";
+            button34.textContent = "Eclipse";
+            break;
+        case recyclingStarter:
+            currentTrueId = trueIdRecyclingStarter;
+            button14.textContent = "MacOS";
+            button22.textContent = "Python"
+            break;
+    }
 }
 
 function onClickButton(buttonId) {
@@ -43,18 +87,36 @@ function onCheckButton() {
     isSuccessful = false;
 
     // Массив с неверно выбранными или не поставленными вариантами
-    let wrong_answers = _.xor(playerId, trueId.flat(2));
+    let wrong_answers = _.xor(playerId, currentTrueId.flat(2));
+    document.getElementById('title_platform').className = "active";
+    document.getElementById('title_language').className = "active";
+    document.getElementById('title_env').className = "active";
 
     if (wrong_answers.length === 0) {
         console.log(wrong_answers);
         console.log("Все заголовки горят");  //Подсвечиваются все заголовки
         console.log("SUCCESSFUL"); //Тут кнопка взломать перевдит на страницу с описанием
         isSuccessful = true;
-
-    } else {
-        document.getElementById('title_platform').className = "active";
-        document.getElementById('title_language').className = "active";
-        document.getElementById('title_env').className = "active";
+        switch (currentProject) {
+            case isc:
+                iscEnable = true;
+                break;
+            case manifesto:
+                manifestoEnable = true;
+                break;
+            case recyclingStarter:
+                restarterEnable = true;
+                break;
+            case rushZone:
+                rushzoneEnable = true;
+                break;
+            case wayco:
+                waycoEnable = true;
+                break;
+        }
+        saveToStorage();
+        showProjectEnable();
+        } else {
         console.log("BAD");
 
         wrong_answers.forEach(el => {
@@ -64,7 +126,7 @@ function onCheckButton() {
             thisBut = document.getElementById(el);
             thisBut.className = "block incorrect";
 
-            if (trueId.flat(2).find(i => el === i)) {
+            if (currentTrueId.flat(2).find(i => el === i)) {
                 console.log("НЕ ХВАТАЕТ " + el);
                 no_but = document.getElementById(el);
                 no_but.className = "block"
@@ -90,10 +152,8 @@ function setStyleLine(idx) {
         console.log("Потух третий ряд");
     } else {
         console.log("Все горят");
-
     }
 }
-
 
 // Функция определяет в каком ряду находится элемент
 function onCheckLine(key){
@@ -119,6 +179,18 @@ function setInitialSettings() {
     button32 = document.getElementById("button32");
     button33 = document.getElementById("button33");
     button34 = document.getElementById("button34");
+    button11.textContent = "Android";
+    button12.textContent = "iOS";
+    button13.textContent = "Web";
+    button14.textContent = "Windows";
+    button21.textContent = "Java Script";
+    button22.textContent = "C#";
+    button23.textContent = "Java";
+    button24.textContent = "Swift";
+    button31.textContent = "Unity";
+    button32.textContent = "Android Studio";
+    button33.textContent = "XCode";
+    button34.textContent = "Web Storm";
     button11.className = "block";
     button12.className = "block";
     button13.className = "block";
