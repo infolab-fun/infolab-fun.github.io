@@ -7,5 +7,6 @@ let currentPage = 'profile';
  */
 function openPage(page) {
     currentPage = page;
+    // currentPage = "game"
     render();
 }

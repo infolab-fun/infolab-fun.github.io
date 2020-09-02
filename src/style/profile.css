@@ -1,0 +1,354 @@
+html, body {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+.page {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #171A23;
+  font-family: "Roboto", sans-serif;
+}
+.page .profile {
+  z-index: 1;
+  transform: translateY(58%);
+}
+.page .profile img {
+  width: 28vw;
+  height: 28vw;
+  border-radius: 5vw;
+  background-color: black;
+  border: white 5px solid;
+}
+.page .profile h1 {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #e6eaf2;
+}
+.page .main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85vw;
+  height: 84vh;
+  background: #262A34;
+  border-radius: 5vw 5vw 0px 0px;
+}
+.page .main-wrapper .zero {
+  height: 25vw;
+  width: 90%;
+  border-bottom: 4px solid #1D1D28;
+  margin-top: 0;
+}
+.page .main-wrapper .button_open {
+  width: 77vw;
+  height: 8.5vh;
+  border-radius: 10px;
+  margin: auto;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2.6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #E5E5E5;
+  text-shadow: 0px 1.33333px 1.33333px rgba(0, 0, 0, 0.5);
+  background-repeat: no-repeat;
+  background-size: 77vw 8.5vh;
+  background-color: rgba(117, 190, 218, 0);
+}
+.page .main-wrapper .Manifesto {
+  background-image: url(../img/Manifesto.png);
+}
+.page .main-wrapper .WayCo {
+  background-image: url(../img/WayCo.png);
+}
+.page .main-wrapper .RecyclingStarter {
+  background-image: url(../img/RecyclingStarter.png);
+}
+.page .main-wrapper .ISC {
+  background-image: url(../img/ISC.png);
+}
+.page .main-wrapper .RushZone {
+  background-image: url(../img/RushZone.png);
+}
+.page .main-wrapper .active {
+  opacity: 1;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+}
+.game .header .info {
+  width: 100vw;
+  height: 11vh;
+  background: #262A34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.game .header .info span {
+  transform: translateX(5vw);
+  width: 80vw;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 4vw;
+  display: flex;
+  align-items: center;
+  color: #E5E5E5;
+}
+.game .header .info span:before {
+  background-image: url("../img/info.svg");
+  background-repeat: no-repeat;
+  background-size: 4vw 4vh;
+  display: inline-block;
+  width: 10vw;
+  height: 5vh;
+  content: "";
+  transform: translateX(-6vw);
+}
+.game .main {
+  width: 84vw;
+  height: 47vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.game .main span {
+  font-size: 3vh;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  opacity: 0.5;
+  color: #1ADDA5;
+}
+.game .main .active {
+  opacity: 1;
+}
+.game .main .container {
+  width: 100%;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.game .main .container .block {
+  width: 8.5vh;
+  height: 8.5vh;
+  background: #393947;
+  box-sizing: border-box;
+  box-shadow: 0.5vw 0.5vw 0.5vw rgba(0, 0, 0, 0.7);
+  border-radius: 3vw;
+  color: #E5E5E5;
+  font-size: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.game .main .container .correct {
+  border: 0.5vw solid #1ADDA5;
+}
+.game .main .container .incorrect {
+  border: 0.5vw solid #DD8F1A;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: auto;
+}
+.project .preview {
+  width: 90vw;
+  margin: 0 auto 0 5vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.project .preview img {
+  width: 30vw;
+  margin: auto;
+}
+.project .preview img:nth-child(odd) {
+  width: 28vw;
+}
+.item_disable {
+  opacity: 0.2;
+}
+.project .text {
+  width: 80vw;
+  font-size: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  color: white;
+  padding-bottom: 10vh;
+}
+.project .text p {
+  color: #1ADDA5;
+}
+.project .button_open_camera {
+  position: fixed;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 2vh;
+}
+
+/*.camera {*/
+/*  width: 100vw;*/
+/*  height: 100vh;*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  align-items: center;*/
+/*  justify-content: space-between;*/
+/*}*/
+/*.camera .frame {*/
+/*  position: absolute;*/
+/*  left: 0;*/
+/*  top: 0;*/
+/*  z-index: 0;*/
+/*  width: 100vw;*/
+/*  height: 100vh;*/
+/*  mix-blend-mode: multiply;*/
+/*  background: rgba(29, 29, 40, 0.4);*/
+/*}*/
+/*.camera .frame .box {*/
+/*  position: absolute;*/
+/*  width: 40vw;*/
+/*  height: 40vw;*/
+/*  left: 0;*/
+/*  top: 0;*/
+/*  right: 0;*/
+/*  bottom: 0;*/
+/*  margin: auto;*/
+/*  z-index: 2;*/
+/*  mix-blend-mode: normal;*/
+/*  background: #FFFFFF;*/
+/*}*/
+/*.camera .camera_border {*/
+/*  width: 40vw;*/
+/*  height: 40vw;*/
+/*  margin: auto;*/
+/*  border: 1vw dashed white;*/
+/*  z-index: 3;*/
+/*}*/
+/*.camera .camera_border-wrapper {*/
+/*  position: absolute;*/
+/*  height: 100vh;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  z-index: 2;*/
+/*  display: flex;*/
+/*  width: 100%;*/
+/*}*/
+.camera .button_back {
+  position: relative;
+  top: 4vh;
+  left: 5vw;
+  width: 10vw;
+  height: 10vw;
+  mix-blend-mode: normal;
+  background: white;
+  border-radius: 3vw;
+  z-index: 1020;
+}
+.camera .button_back .fa {
+  font-size: 2.3vh;
+  position: relative;
+  margin-top: 40%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+.header .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.header .title .button_back {
+  width: 9vw;
+  height: 9vw;
+  background: #E6EAF2;
+  border-radius: 3vw;
+}
+.header .title .button_back .fa {
+  font-size: 2.3vh;
+}
+.header .title h1 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 4vh;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+  color: #1ADDA5;
+}
+.header .title div:last-child {
+  width: 9vw;
+  height: 9vw;
+}
+
+.button_open_camera {
+  width: 60vw;
+  height: 6.9vh;
+  margin: 2vh auto;
+  margin-top: 3vh;
+  background: #1ADDA5;
+  box-shadow: 0px 1.33333px 1.33333px rgba(0, 0, 0, 0.25);
+  border-radius: 4vw;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.6vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1D1D28;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+video {
+  height: 100%;
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=profile.css.map */

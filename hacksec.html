@@ -1,42 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, viewport-fit=cover">
     <title>HackSec</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link href="src/style/profile.css" rel="stylesheet">
+    <link href="src/css/camera.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+    <script src="node_modules/html5-qrcode/minified/html5-qrcode.min.js" defer></script>
+    <script src="node_modules/lodash/lodash.js" defer></script>
     <script src="src/js/navigation/navigation.js" defer></script>
     <script src="src/js/navigation/render.js" defer></script>
+    <script src="src/js/projectDescription.js" defer></script>
+    <script src="src/js/storage.js" defer></script>
     <script src="src/js/ui/ui.js" defer></script>
+    <script src="src/js/game.js" defer></script>
+    <script src="src/js/scan.js" defer></script>
     <script src="src/js/start.js" defer></script>
 </head>
 <body>
 <!-- Профиль -->
 <section id="profile" class="page">
-    <h1>Profile</h1>
-    <button id="button_open_camera" class="button_open">Камера</button>
-    <button id="button_open_project" class="button_open">Проект</button>
+    <div class="profile">
+        <img src="src/img/Icon.png" alt="">
+        <h1>Info Lab</h1>
+    </div>
+    <div class="main-wrapper">
+        <div class="zero"></div>
+        <button id="button_open_isc" class="button_open ISC">ISC</button>
+        <button id="button_open_recycling_starter" class="button_open RecyclingStarter">Recycling Starter</button>
+        <button id="button_open_manifesto" class="button_open Manifesto">Manifesto</button>
+        <button id="button_open_wayco" class="button_open WayCo">WayCo</button>
+        <button id="button_open_rush_zone" class="button_open RushZone">Rush Zone</button>
+        <button id="button_open_camera" class="button_open_camera">Сканировать</button>
+    </div>
 </section>
 
 <!-- Камера -->
-<section id="camera" class="page hidden">
-    <button id="button_close_camera" class="button_back">Назад</button>
-    <h1>Camera</h1>
-    <button id="button_open_game" class="button_open">Играть</button>
+<section id="camera" class="page camera hidden vh100">
+    <button id="button_close_camera"  style="position: absolute; left: 50px; top: 10px; background-color: #171A23"><div  class="button_back"><i class="fa fa-chevron-left"></i></div></button>
+    <div class="qr_camera" id="reader"></div>
 </section>
 
 <!-- Игра -->
-<section id="game" class="page hidden">
-    <button id="button_close_game" class="button_back">Назад</button>
-    <h1>Game</h1>
-    <button id="button_hack" class="button_open">Взломать</button>
+<section id="game" class="page game hidden">
+    <div class="header">
+        <div class="title">
+<!--            <form action="index.html">-->
+            <button id="button_close_game"><div class="button_back"><i class="fa fa-chevron-left"></i></div></button>
+            <div class="fa fa-chevron-left"></div>
+<!--            </form>-->
+            <h1 id="game_header" style="padding: 3vh">Game</h1>
+            <div></div>
+        </div>
+        <div id="game_about" class="info">
+            <span>Сервис для заказа кофе, состоящий из web приложения и нативных мобильных приложений.
+            </span>
+        </div>
+    </div>
+    <div class="main">
+        <div>
+            <span id="title_platform" class="active">Платформа</span>
+            <div class="container">
+                <div class="block correct" id="button11" onclick="onClickButton('button11')">Android</div>
+                <div class="block correct" id="button12" onclick="onClickButton('button12')">iOS</div>
+                <div class="block correct" id="button13" onclick="onClickButton('button13')">Web</div>
+                <div class="block" id="button14" onclick="onClickButton('button14')">Windows</div>
+            </div>
+        </div>
+        <div>
+            <span id="title_language" class="active">Языки программирования</span>
+            <div class="container">
+                <div class="block correct" id="button21" onclick="onClickButton('button21')">Java Script</div>
+                <div class="block" id="button22" onclick="onClickButton('button22')">C#</div>
+                <div class="block correct" id="button23" onclick="onClickButton('button23')">Java</div>
+                <div class="block" id="button24" onclick="onClickButton('button24')">Swift</div>
+            </div>
+        </div>
+        <div>
+            <span id="title_env" class="active">Среды разработки</span>
+            <div class="container">
+                <div class="block incorrect" id="button31" onclick="onClickButton('button31')">Unity</div>
+                <div class="block correct" id="button32" onclick="onClickButton('button32')">Android Studio</div>
+                <div class="block correct" id="button33" onclick="onClickButton('button33')">XCode</div>
+                <div class="block" id="button34" onclick="onClickButton('button34')">Web Storm</div>
+            </div>
+        </div>
+    </div>
+    <button id="button_hack" class="button_open_camera">Взломать</button>
 </section>
 
 <!-- Проект -->
-<section id="project" class="page hidden">
-    <button id="button_close_project" class="button_back">Назад</button>
-    <h1>Project</h1>
+<section id="project" class="page project hidden">
+    <div class="header">
+        <div class="title">
+            <button id="button_close_project" class="button_back"><i class="fa fa-chevron-left"></i></button>
+            <h1 id="project_title" style="padding: 3vh">Project</h1>
+            <div></div>
+        </div>
+    </div>
+    <div  id="project_description">
+    <div class="preview" >
+        <img src="src/img/Screenshot.svg" id="project_screen1" alt="">
+        <img src="src/img/Screenshot.svg" id="project_screen2" alt="">
+        <img src="src/img/Screenshot.svg" id="project_screen3" alt="">
+    </div>
+    <div id="project_description_text" class="text">
+        <span>WayCo — стартап по удалённому заказу кофе.</span>
+    </div>
+    </div>
+    <a href="https://vk.com/infolab_club"> <button class="button_open_camera">Присоединиться</button></a>
+
 </section>
+<script>
+    const elements = document.querySelectorAll(`.vh100`)
+    const f = () => {
+        elements.forEach(element => element.style.height = `${window.innerHeight}px`)
+    }
+    f()
+    window.addEventListener(`resize`, f)
+</script>
 </body>
 </html>
+

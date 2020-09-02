@@ -1,2 +1,4 @@
 render();
 setOnClickListeners();
+loadFromStorage();
+showProjectEnable();
