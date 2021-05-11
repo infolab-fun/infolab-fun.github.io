@@ -6,3 +6,8 @@ html5-qrcode@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/html5-qrcode/-/html5-qrcode-1.2.0.tgz#a36068cddfa59fc92d6b160221fdd4542d5372e5"
   integrity sha512-L6acl7sFAkabIgY+wnOB78ll/Cwz0HDkICOfyk/754aBh43rT6A2XUaMMMfb4SRe5xCgNlG/isbpyhrk1Xu/5g==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
