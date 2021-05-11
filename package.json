@@ -7,6 +7,6 @@
   "license": "MIT",
   "dependencies": {
     "html5-qrcode": "^1.2.0",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.21"
   }
 }
